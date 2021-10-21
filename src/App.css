@@ -2,9 +2,7 @@
  * {
 	 box-sizing: border-box;
 	 outline: 0;
-}
- :root {
-	 --font: 'DM Sans', sans-serif;
+	 font-family: 'DM Sans' sans-serif;
 }
  body {
 	 background-image: radial-gradient(circle, rgba(85,85,85,1) 0%, rgba(148,187,233,1) 100%);
@@ -17,12 +15,11 @@
 	 height: 100vh;
 	 overflow: hidden;
 }
- .App {
+ .app {
 	 max-width: 400px;
 	 width: 100%;
 	 margin: auto;
 	 background-color: #fff;
-	 font-family: var(--font);
 	 border-radius: 16px;
 	 font-size: 15px;
 	 overflow: hidden;
@@ -100,7 +97,6 @@
 	 font-size: 14px;
 	 line-height: 1;
 	 cursor: pointer;
-	 font-family: var(--font);
 	 color: #8a9ca5;
 	 border-radius: 20px;
 }
@@ -119,7 +115,6 @@
  .task-input {
 	 flex: 1;
 	 font-size: 16px;
-	 font-family: var(--font);
 	 padding: 10px 20px;
 	 border: 0;
 	 box-shadow: 0 -1px 0 #e2e4ea inset;
