@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default function TodoToolbar() {
+export default function TodoToolbar(){
     return (
         <div className="task-tools">
             <div className="task-count">5 tasks</div>

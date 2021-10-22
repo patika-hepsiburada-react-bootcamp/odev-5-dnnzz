@@ -1,32 +1,39 @@
 import {TodoType,Action, ActionTypes} from "../interfaces/Todo";
 import {remove} from '../utils/utils';
 
-export function todoReducer (state:Array<TodoType>,action:Action):any{
+export function todoReducer (state:{todos:Array<TodoType>},action:Action):any{
     const {type , payload} = action;
     switch(type){
         case ActionTypes.ADD:
             return {
-                state : [...state,payload]
+                ...state,
+                todos : [...state.todos,payload]
             }
         case ActionTypes.DELETE:
             return {
-                state : remove(state,"task",payload.task)
+                ...state,
+                todos : remove(state.todos,"task",payload.task)
             }
         case ActionTypes.DELETE_ALL:
             return{
-                state : state.filter((task) => task.isFinished === true)
+                ...state,
+                todos : state.todos.filter((task) => task.isFinished === true)
             }
         case ActionTypes.PATCH:
-            let tempTask = state.find(v => v.task === payload.task);
-            if(tempTask?.isFinished === true){
-                tempTask.isFinished = false;
-            }
-            if(tempTask?.isFinished === false){
-                tempTask.isFinished = true;
-            }
+            // Find and replace status 
+            const newTasks = state.todos.reduce((ds, d) => {
+                let newD = d;
+                if (d.task === payload.task) {
+                  newD = Object.assign({}, d, { isFinished: !payload.isFinished });
+                }
+                return ds.concat(newD);
+              }, [] as Array<TodoType>);
             return {
-                state: state
+                ...state,
+                todos: newTasks
             }
+        default:
+            return state;
 
     }
 }

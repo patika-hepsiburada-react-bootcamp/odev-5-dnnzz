@@ -4,8 +4,10 @@ import { TodoType } from 'interfaces/Todo'
 export default function TodoList({handleDispatch,todos} :{handleDispatch : Function,todos:Array<TodoType>}) {
     return (
         <div className="task-list">
-           {todos.map(item => (
-               <h1>{item.task}</h1>
+           {todos.map((item,key) => (
+               <div key={key}>
+                   <TodoItem  task={item.task} isFinished={item.isFinished} handleDispatch={handleDispatch} />
+               </div>
            ))}
         </div>
     )
