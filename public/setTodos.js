@@ -1,1 +1,1 @@
-window.localStorage.setItem("todos",JSON.stringify({task:"todo",isChecked:false}));
+window.localStorage.setItem("todos",JSON.stringify([{task:"todo",isChecked:false}]));

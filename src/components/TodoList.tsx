@@ -1,13 +1,12 @@
 import React from 'react'
 import TodoItem from './TodoItem'
-
-export default function TodoList() {
+import { TodoType } from 'interfaces/Todo'
+export default function TodoList({handleDispatch,todos} :{handleDispatch : Function,todos:Array<TodoType>}) {
     return (
         <div className="task-list">
-            <TodoItem /> 
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
+           {todos.map(item => (
+               <h1>{item.task}</h1>
+           ))}
         </div>
     )
 }
