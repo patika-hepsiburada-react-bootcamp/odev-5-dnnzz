@@ -7,8 +7,8 @@ import { todoReducer } from 'reducers/reducer'
 import { ActionTypes, TodoType } from 'interfaces/Todo'
 
 export default function Todo() {
-    
-    const [initialState,setInitialState] = React.useState<Array<TodoType>>(JSON.parse(localStorage.getItem("todos")!));
+
+    const initialState = JSON.parse(localStorage.getItem("todos")!);
     const [state, dispatch] = React.useReducer(todoReducer,{todos : initialState});
     const [filter,setFilter] = React.useState<string>("all");
 
