@@ -17,7 +17,7 @@ export function todoReducer (state:{todos:Array<TodoType>},action:Action):any{
         case ActionTypes.DELETE_ALL:
             return{
                 ...state,
-                todos : state.todos.filter((task) => task.isFinished === true)
+                todos : state.todos.filter((task) => task.isFinished === false)
             }
         case ActionTypes.PATCH:
             // Find and replace status 

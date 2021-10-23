@@ -157,6 +157,19 @@
 	 font-size: 18px;
 	 background-size: 80px;
 }
+.clear-btn {
+	position: relative;
+	float: right;
+	color : #7996a5;
+	background-color: #fff;
+	border-radius: 20%;
+	border:1px solid #7996a5;
+	margin-right: 0.50rem;
+}
+.clear-btn:hover{
+	color:#fff;
+	background-color: #7996a5;
+}
  @media (max-width: 600px) {
 	 .task-delete {
 		 display: block;

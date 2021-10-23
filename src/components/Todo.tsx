@@ -7,8 +7,11 @@ import { todoReducer } from 'reducers/reducer'
 import { ActionTypes, TodoType } from 'interfaces/Todo'
 
 export default function Todo() {
+    
     const [initialState,setInitialState] = React.useState<Array<TodoType>>(JSON.parse(localStorage.getItem("todos")!));
     const [state, dispatch] = React.useReducer(todoReducer,{todos : initialState});
+    const [filter,setFilter] = React.useState<string>("all");
+
     const handleDispatch = (type : ActionTypes, payload: TodoType) : void => {
        return dispatch({type:type,payload:payload});
     }
@@ -16,10 +19,10 @@ export default function Todo() {
         <div className="app">
             <div className="task-header">
                 <h1 className="task-header-title">{dateFormatter()}</h1>
-                <TodoToolbar /> 
+                <TodoToolbar filter={filter} numberOfTasks={state.todos.length} handleFilter = {setFilter}/> 
                 <TodoInput handleDispatch={handleDispatch} />
             </div>
-            <TodoList todos = {state.todos} handleDispatch={handleDispatch}/>
+            <TodoList filter={filter} todos = {state.todos} handleDispatch={handleDispatch}/>
         </div>
     )
 }

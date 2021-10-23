@@ -1,1 +1,1 @@
-window.localStorage.setItem("todos",JSON.stringify([{task:"todo",isFinished:true},{task:"modo",isFinished:true}]));
+window.localStorage.setItem("todos",JSON.stringify([{task:"todo",isFinished:false},{task:"hb-react-task",isFinished:false}]));
